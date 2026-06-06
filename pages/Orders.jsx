@@ -200,7 +200,7 @@ export default function Orders() {
                                             <div className="flex flex-col">
                                                 <span className="font-black text-gray-900 text-sm">#{order.orderNumber}</span>
                                                 <span className="text-[10px] font-black text-gray-400 uppercase tracking-tighter mt-1 italic">
-                                                    {new Date(order.createdAt).toLocaleDateString([], { day: '2-digit', month: 'short' })} • {new Date(order.createdAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                                                    {new Date(order.createdAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                                                 </span>
                                             </div>
                                         </td>
@@ -265,7 +265,14 @@ export default function Orders() {
                                         </td>
                                         <td className="px-6 py-5 text-right">
                                             <div className="flex items-center justify-end gap-2">
-                                                <span className="font-black text-lg mr-4 text-gray-900">₹{order.total}</span>
+                                                <div className="flex flex-col items-end mr-4">
+                                                    <span className="font-black text-lg text-gray-900">₹{order.total}</span>
+                                                    {order.discount > 0 && (
+                                                        <span className="text-[10px] font-black text-emerald-600 uppercase tracking-tighter bg-emerald-50 px-2 py-0.5 rounded border border-emerald-100">
+                                                            -₹{order.discount} (COUPON)
+                                                        </span>
+                                                    )}
+                                                </div>
                                                 <button
                                                     onClick={() => toggleExpand(order._id)}
                                                     className={`p-2 rounded-xl transition-all ${expandedOrder === order._id ? 'bg-black text-white' : 'bg-gray-100 text-gray-400 hover:bg-gray-200'}`}
@@ -369,6 +376,34 @@ export default function Orders() {
                                                                 </div>
                                                             </div>
                                                         )}
+
+                                                        <div>
+                                                            <h4 className="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-6 border-b border-gray-50 pb-2 flex items-center gap-2"><CreditCard className="w-3 h-3" /> Payment Breakdown</h4>
+                                                            <div className="p-6 bg-gray-50/50 border border-gray-100 rounded-[2rem] space-y-3">
+                                                                <div className="flex justify-between text-[10px] font-black text-gray-400 uppercase">
+                                                                    <span>Subtotal</span>
+                                                                    <span className="text-gray-900">₹{order.subtotal}</span>
+                                                                </div>
+                                                                <div className="flex justify-between text-[10px] font-black text-gray-400 uppercase">
+                                                                    <span>Taxes (GST)</span>
+                                                                    <span className="text-gray-900">₹{order.tax}</span>
+                                                                </div>
+                                                                <div className="flex justify-between text-[10px] font-black text-gray-400 uppercase">
+                                                                    <span>Delivery Fee</span>
+                                                                    <span className="text-gray-900">₹{order.deliveryCharge}</span>
+                                                                </div>
+                                                                {order.discount > 0 && (
+                                                                    <div className="flex justify-between text-[10px] font-black text-emerald-600 uppercase">
+                                                                        <span>Discount ({order.couponCode || 'COUPON'})</span>
+                                                                        <span>-₹{order.discount}</span>
+                                                                    </div>
+                                                                )}
+                                                                <div className="pt-3 border-t border-gray-100 flex justify-between items-center">
+                                                                    <span className="text-[10px] font-black text-gray-900 uppercase tracking-widest">Total Amount</span>
+                                                                    <span className="text-xl font-black text-bakery-primary tracking-tighter">₹{order.total}</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </td>

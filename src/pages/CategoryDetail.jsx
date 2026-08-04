@@ -90,7 +90,7 @@ export default function CategoryDetail() {
                         <ArrowLeft className="w-6 h-6 text-gray-600" />
                     </button>
                     <div>
-                        <h1 className="text-3xl font-black text-gray-900 uppercase tracking-tight">Category Details</h1>
+                        <h1 className="text-xl sm:text-2xl font-black text-gray-900 uppercase tracking-tight">Category Details</h1>
                         <p className="text-gray-500 mt-1 font-bold">Manage group info and associated items</p>
                     </div>
                 </div>
@@ -137,7 +137,7 @@ export default function CategoryDetail() {
                     {/* Name */}
                     <div>
                         <p className="text-[10px] font-black text-gray-400 uppercase tracking-widest leading-none mb-2">Category Name</p>
-                        <h3 className="text-3xl font-black text-gray-900 uppercase tracking-tight">{category.name}</h3>
+                        <h3 className="text-xl sm:text-2xl font-black text-gray-900 uppercase tracking-tight">{category.name}</h3>
                     </div>
 
                     {/* Description */}
@@ -161,7 +161,7 @@ export default function CategoryDetail() {
                     <div className="space-y-4">
                         <div className="bg-white rounded-lg p-4">
                             <p className="text-sm text-gray-600">Total Products</p>
-                            <p className="text-3xl font-bold text-bakery-primary mt-2">{products.length}</p>
+                            <p className="text-xl sm:text-2xl font-bold text-bakery-primary mt-2">{products.length}</p>
                         </div>
 
                         {category.createdAt && (
@@ -196,7 +196,7 @@ export default function CategoryDetail() {
             {/* Products Section */}
             <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
                 <div className="mb-6">
-                    <h2 className="text-2xl font-bold text-gray-900">Products in this Category</h2>
+                    <h2 className="text-lg sm:text-xl font-bold text-gray-900">Products in this Category</h2>
                     <p className="text-gray-600 mt-1">{products.length} product(s) found</p>
                 </div>
 

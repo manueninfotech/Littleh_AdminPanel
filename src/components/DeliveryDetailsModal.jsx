@@ -138,7 +138,7 @@ const DeliveryDetailsModal = ({ isOpen, onClose, delivery }) => {
                         </div>
                         <div>
                             <div className="flex items-center gap-3">
-                                <h2 className="text-3xl font-black text-gray-900 uppercase tracking-tight">Delivery Details</h2>
+                                <h2 className="text-xl sm:text-2xl font-black text-gray-900 uppercase tracking-tight">Delivery Details</h2>
                                 <span className={`px-3 py-1 rounded-md text-[8px] font-black uppercase tracking-widest border ${delivery.status === 'delivered' ? 'bg-bakery-bg text-bakery-primary border-bakery-light' : 'bg-orange-50 text-orange-700 border-orange-100'
                                     }`}>
                                     {delivery.status}
@@ -316,7 +316,7 @@ const DeliveryDetailsModal = ({ isOpen, onClose, delivery }) => {
                                             <IndianRupee className="w-8 h-8 text-gray-900" />
                                         </div>
                                         <div>
-                                            <p className="text-3xl font-black text-gray-900 tracking-tight">₹{delivery.orderId?.total}</p>
+                                            <p className="text-xl font-black text-gray-900 tracking-tight">₹{delivery.orderId?.total}</p>
                                             <p className="text-[10px] text-gray-400 font-black uppercase tracking-widest mt-1">Order Total</p>
                                         </div>
                                     </div>

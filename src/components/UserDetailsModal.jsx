@@ -97,7 +97,7 @@ const UserDetailsModal = ({ user, isOpen, onClose }) => {
                             'bg-bakery-bg'
                     }`}>
                     <div className="flex items-center gap-6">
-                        <div className={`w-20 h-20 rounded-[2rem] flex items-center justify-center font-black text-3xl uppercase border shadow-sm ${user.role === 'admin' ? 'bg-white text-purple-600 border-purple-100' :
+                        <div className={`w-16 h-16 rounded-[1.5rem] flex items-center justify-center font-black text-2xl uppercase border shadow-sm ${user.role === 'admin' ? 'bg-white text-purple-600 border-purple-100' :
                             user.role === 'rider' ? 'bg-white text-orange-600 border-orange-100' :
                                 user.role === 'manager' ? 'bg-white text-blue-600 border-blue-100' :
                                     'bg-white text-bakery-primary border-bakery-light'
@@ -105,7 +105,7 @@ const UserDetailsModal = ({ user, isOpen, onClose }) => {
                             {user.name?.charAt(0)}
                         </div>
                         <div>
-                            <h2 className="text-3xl font-black text-gray-900 uppercase tracking-tight">{user.name}</h2>
+                            <h2 className="text-xl sm:text-2xl font-black text-gray-900 uppercase tracking-tight">{user.name}</h2>
                             <div className="flex items-center gap-2 mt-1">
                                 <RoleIcon className={`w-3 h-3 ${user.role === 'admin' ? 'text-purple-600' :
                                     user.role === 'rider' ? 'text-orange-600' :

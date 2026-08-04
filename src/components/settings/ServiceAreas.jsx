@@ -178,20 +178,20 @@ const ServiceAreas = () => {
     return (
         <div className="space-y-8 max-w-5xl mx-auto flex flex-col relative pb-10">
             {/* Header */}
-            <div className="bg-white p-10 rounded-[2.5rem] shadow-sm border border-gray-100 flex justify-between items-center z-10">
-                <div className="flex items-center gap-6">
-                    <div className="w-20 h-20 bg-gray-50 rounded-[2rem] flex items-center justify-center border border-gray-100 shadow-sm">
-                        <MapPin className="w-10 h-10 text-bakery-primary" />
+            <div className="bg-white p-6 rounded-[2rem] shadow-sm border border-gray-100 flex justify-between items-center z-10">
+                <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 bg-gray-50 rounded-xl flex items-center justify-center border border-gray-100 shadow-sm">
+                        <MapPin className="w-5 h-5 text-bakery-primary" />
                     </div>
                     <div>
-                        <h2 className="text-3xl font-black text-gray-900 uppercase tracking-tight">Delivery Zones</h2>
-                        <p className="text-[10px] font-black text-gray-400 uppercase tracking-[0.2em] mt-1 italic">Manage Areas</p>
+                        <h2 className="text-sm font-black text-gray-900 uppercase tracking-tight">Delivery Zones</h2>
+                        <p className="text-[10px] font-black text-gray-400 uppercase tracking-[0.2em] mt-0.5 italic">Manage Areas</p>
                     </div>
                 </div>
                 <button
                     onClick={saveAllZones}
                     disabled={saving}
-                    className="flex items-center gap-3 px-8 py-4 bg-bakery-primary text-white rounded-2xl text-[10px] font-black uppercase tracking-widest hover:bg-bakery-primary transition-all shadow-xl shadow-bakery-light disabled:opacity-70 hover:scale-105 active:scale-95"
+                    className="flex items-center gap-2 px-6 py-3 bg-bakery-primary text-white rounded-xl text-[10px] font-black uppercase tracking-widest hover:bg-bakery-primary transition-all shadow-lg shadow-bakery-light disabled:opacity-70"
                 >
                     <Save className="w-4 h-4" />
                     {saving ? 'Syncing...' : 'Save Zones'}
@@ -290,7 +290,7 @@ const ServiceAreas = () => {
             {showModal && (
                 <div className="fixed inset-0 bg-bakery-primary/40 backdrop-blur-sm z-[9999] flex items-center justify-center p-4">
                     <div className="bg-white rounded-[2.5rem] shadow-2xl w-full max-w-md p-10 animate-in fade-in zoom-in duration-200 border border-gray-100">
-                        <h3 className="text-2xl font-black text-gray-900 uppercase tracking-tight mb-8">Add New Zone</h3>
+                        <h3 className="text-lg font-black text-gray-900 uppercase tracking-tight mb-8">Add New Zone</h3>
 
                         <div className="space-y-6">
                             <div className="space-y-2">

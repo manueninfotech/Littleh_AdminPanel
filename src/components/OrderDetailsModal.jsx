@@ -138,7 +138,7 @@ export default function OrderDetailsModal({ isOpen, onClose, order, onSuccess })
                 {/* Header */}
                 <div className="sticky top-0 bg-white/80 backdrop-blur-md border-b border-gray-50 p-8 flex items-center justify-between z-10">
                     <div>
-                        <h2 className="text-3xl font-black text-gray-900 uppercase tracking-tight">Order Details</h2>
+                        <h2 className="text-xl sm:text-2xl font-black text-gray-900 uppercase tracking-tight">Order Details</h2>
                         <p className="text-[10px] font-black text-bakery-primary uppercase tracking-[0.2em] mt-1 italic">Order #{order.orderNumber}</p>
                     </div>
                     <button
@@ -322,7 +322,7 @@ export default function OrderDetailsModal({ isOpen, onClose, order, onSuccess })
                                     )}
                                     <div className="flex justify-between items-center pt-2">
                                         <span className="text-sm font-black text-gray-900 uppercase tracking-tight">Total Amount</span>
-                                        <span className="text-2xl font-black text-bakery-primary tracking-tighter">₹{order.total}</span>
+                                        <span className="text-xl font-black text-bakery-primary tracking-tighter">₹{order.total}</span>
                                     </div>
                                 </div>
                                 <div className="mt-6 pt-6 border-t border-gray-50 space-y-4">
@@ -549,7 +549,7 @@ export default function OrderDetailsModal({ isOpen, onClose, order, onSuccess })
                 {showRiderAssignment && (
                     <div className="fixed inset-0 bg-bakery-primary/40 backdrop-blur-sm flex items-center justify-center z-[60] p-4">
                         <div className="bg-white rounded-[2.5rem] p-10 w-full max-w-lg shadow-2xl border border-gray-100">
-                            <h3 className="text-2xl font-black text-gray-900 uppercase tracking-tight mb-2">Assign Rider</h3>
+                            <h3 className="text-lg font-black text-gray-900 uppercase tracking-tight mb-2">Assign Rider</h3>
                             <p className="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-8">Assign a delivery rider to this order</p>
 
                             {/* Auto Assignment Button */}

@@ -77,7 +77,7 @@ export default function ProductDetail() {
                         <ArrowLeft className="w-6 h-6 text-gray-600" />
                     </button>
                     <div>
-                        <h1 className="text-3xl font-black text-gray-900 uppercase tracking-tight">Product Details</h1>
+                        <h1 className="text-xl sm:text-2xl font-black text-gray-900 uppercase tracking-tight">Product Details</h1>
                         <p className="text-gray-500 mt-1 font-bold">Manage product configuration and availability</p>
                     </div>
                 </div>
@@ -129,7 +129,7 @@ export default function ProductDetail() {
                     <div className="bg-white rounded-[2.5rem] shadow-sm border border-gray-100 p-8 space-y-8">
                         <div>
                             <p className="text-[10px] font-black text-gray-400 uppercase tracking-widest leading-none mb-2">Item Name</p>
-                            <h3 className="text-3xl font-black text-gray-900 uppercase tracking-tight">{product.name}</h3>
+                            <h3 className="text-xl sm:text-2xl font-black text-gray-900 uppercase tracking-tight">{product.name}</h3>
                         </div>
 
                         <div>
@@ -140,7 +140,7 @@ export default function ProductDetail() {
                         <div className="grid grid-cols-2 gap-8">
                             <div>
                                 <p className="text-[10px] font-black text-gray-400 uppercase tracking-widest leading-none mb-3">Pricing</p>
-                                <p className="text-3xl font-black text-gray-900">₹{product.displayPrice}</p>
+                                <p className="text-xl sm:text-2xl font-black text-gray-900">₹{product.displayPrice}</p>
                             </div>
                             <div>
                                 <p className="text-[10px] font-black text-gray-400 uppercase tracking-widest leading-none mb-3">Classification</p>
@@ -200,7 +200,7 @@ export default function ProductDetail() {
                 <div className="bg-gradient-to-br from-bakery-bg to-bakery-light rounded-xl shadow-sm border border-bakery-accent p-6 h-fit space-y-4">
                     <div className="bg-white rounded-lg p-4">
                         <p className="text-sm text-gray-600">Price</p>
-                        <p className="text-3xl font-bold text-bakery-primary mt-2">
+                        <p className="text-xl sm:text-2xl font-bold text-bakery-primary mt-2">
                             {product.sizeOptions?.length > 0
                                 ? `₹${product.displayPrice}`
                                 : `₹${product.displayPrice}`}

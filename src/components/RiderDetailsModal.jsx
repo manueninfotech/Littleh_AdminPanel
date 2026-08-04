@@ -72,7 +72,7 @@ export default function RiderDetailsModal({ isOpen, onClose, rider, onApprove, o
                             <Bike className="w-10 h-10 text-bakery-primary" />
                         </div>
                         <div>
-                            <h2 className="text-3xl font-black text-gray-900 uppercase tracking-tight">{rider.name}</h2>
+                            <h2 className="text-xl sm:text-2xl font-black text-gray-900 uppercase tracking-tight">{rider.name}</h2>
                             <p className="text-[10px] font-black text-bakery-primary uppercase tracking-[0.2em] mt-1 italic">Rider Profile</p>
                         </div>
                     </div>
@@ -138,7 +138,7 @@ export default function RiderDetailsModal({ isOpen, onClose, rider, onApprove, o
                                                     </div>
                                                     <span className="text-[10px] font-black text-gray-400 uppercase tracking-widest">{stat.label}</span>
                                                 </div>
-                                                <p className="text-2xl font-black text-gray-900 tracking-tight">{stat.value}</p>
+                                                <p className="text-xl font-black text-gray-900 tracking-tight">{stat.value}</p>
                                             </div>
                                         ))}
                                     </div>

@@ -49,7 +49,7 @@ export default function ReviewDetailsModal({ isOpen, onClose, reviewId }) {
                             <MessageSquare className="w-10 h-10 text-gray-900" />
                         </div>
                         <div>
-                            <h2 className="text-3xl font-black text-gray-900 uppercase tracking-tight">Review Details</h2>
+                            <h2 className="text-xl sm:text-2xl font-black text-gray-900 uppercase tracking-tight">Review Details</h2>
                             <p className="text-[10px] font-black text-gray-400 uppercase tracking-[0.2em] mt-1 italic">Feedback Entry</p>
                         </div>
                     </div>
@@ -109,7 +109,7 @@ export default function ReviewDetailsModal({ isOpen, onClose, reviewId }) {
                                         <div>
                                             <p className="text-[8px] font-black text-gray-400 uppercase tracking-widest mb-2">{r.label}</p>
                                             <StarRating rating={r.rating} />
-                                            <p className="font-black text-2xl text-gray-900 tracking-tight mt-2">{r.rating}.0</p>
+                                            <p className="font-black text-xl text-gray-900 tracking-tight mt-2">{r.rating}.0</p>
                                         </div>
                                     </div>
                                 ))}

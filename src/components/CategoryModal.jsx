@@ -74,7 +74,7 @@ export default function CategoryModal({ isOpen, onClose, category, onSuccess }) 
             <div className="bg-white rounded-[2.5rem] shadow-2xl w-full max-w-md border border-gray-100">
                 {/* Header */}
                 <div className="sticky top-0 bg-white/80 backdrop-blur-md border-b border-gray-50 p-8 flex items-center justify-between z-10">
-                    <h2 className="text-2xl font-black text-gray-900 uppercase tracking-tight">
+                    <h2 className="text-lg sm:text-xl font-black text-gray-900 uppercase tracking-tight">
                         {category ? 'Edit Category' : 'Add New Category'}
                     </h2>
                     <button

@@ -116,18 +116,18 @@ const GeneralSettings = () => {
         <form onSubmit={handleSubmit} className="space-y-12 max-w-5xl mx-auto pb-20">
             {/* Store Information */}
             <div className="bg-white rounded-[2.5rem] shadow-sm border border-gray-100 overflow-hidden">
-                <div className="px-10 py-8 border-b border-gray-50 flex items-center justify-between">
-                    <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 bg-gray-50 rounded-2xl flex items-center justify-center border border-gray-100 shadow-sm">
-                            <Building className="w-6 h-6 text-bakery-primary" />
+                <div className="px-6 py-5 border-b border-gray-50 flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                        <div className="w-9 h-9 bg-gray-50 rounded-xl flex items-center justify-center border border-gray-100 shadow-sm">
+                            <Building className="w-4 h-4 text-bakery-primary" />
                         </div>
                         <div>
-                            <h2 className="text-xl font-black text-gray-900 uppercase tracking-tight">Store Info</h2>
+                            <h2 className="text-sm font-black text-gray-900 uppercase tracking-tight">Store Info</h2>
                             <p className="text-[10px] font-black text-gray-400 uppercase tracking-widest mt-0.5">Basic Details</p>
                         </div>
                     </div>
                 </div>
-                <div className="p-10 grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div className="p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="col-span-2 space-y-2">
                         <label className="block text-[10px] font-black text-gray-400 uppercase tracking-[0.2em] px-2">Store Address</label>
                         <textarea
@@ -169,18 +169,18 @@ const GeneralSettings = () => {
 
             {/* Fees & Taxes */}
             <div className="bg-white rounded-[2.5rem] shadow-sm border border-gray-100 overflow-hidden">
-                <div className="px-10 py-8 border-b border-gray-50 flex items-center justify-between">
-                    <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 bg-gray-50 rounded-2xl flex items-center justify-center border border-gray-100 shadow-sm">
-                            <DollarSign className="w-6 h-6 text-bakery-primary" />
+                <div className="px-6 py-5 border-b border-gray-50 flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                        <div className="w-9 h-9 bg-gray-50 rounded-xl flex items-center justify-center border border-gray-100 shadow-sm">
+                            <DollarSign className="w-4 h-4 text-bakery-primary" />
                         </div>
                         <div>
-                            <h2 className="text-xl font-black text-gray-900 uppercase tracking-tight">Taxes & Fees</h2>
+                            <h2 className="text-sm font-black text-gray-900 uppercase tracking-tight">Taxes & Fees</h2>
                             <p className="text-[10px] font-black text-gray-400 uppercase tracking-widest mt-0.5">Charges & Rates</p>
                         </div>
                     </div>
                 </div>
-                <div className="p-10 grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div className="p-6 grid grid-cols-1 md:grid-cols-4 gap-6">
                     <div className="space-y-2">
                         <label className="block text-[10px] font-black text-gray-400 uppercase tracking-[0.2em] px-2">Delivery Fee (₹)</label>
                         <input
@@ -226,18 +226,18 @@ const GeneralSettings = () => {
 
             {/* Rider Earnings */}
             <div className="bg-white rounded-[2.5rem] shadow-sm border border-gray-100 overflow-hidden">
-                <div className="px-10 py-8 border-b border-gray-50 flex items-center justify-between">
-                    <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 bg-gray-50 rounded-2xl flex items-center justify-center border border-gray-100 shadow-sm">
-                            <Bike className="w-6 h-6 text-bakery-primary" />
+                <div className="px-6 py-5 border-b border-gray-50 flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                        <div className="w-9 h-9 bg-gray-50 rounded-xl flex items-center justify-center border border-gray-100 shadow-sm">
+                            <Bike className="w-4 h-4 text-bakery-primary" />
                         </div>
                         <div>
-                            <h2 className="text-xl font-black text-gray-900 uppercase tracking-tight">Rider Earnings</h2>
+                            <h2 className="text-sm font-black text-gray-900 uppercase tracking-tight">Rider Earnings</h2>
                             <p className="text-[10px] font-black text-gray-400 uppercase tracking-widest mt-0.5">Pay Structure</p>
                         </div>
                     </div>
                 </div>
-                <div className="p-10 grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div className="p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-2">
                         <label className="block text-[10px] font-black text-gray-400 uppercase tracking-[0.2em] px-2">Base Pay (₹)</label>
                         <input
@@ -263,18 +263,18 @@ const GeneralSettings = () => {
 
             {/* Operating Hours */}
             <div className="bg-white rounded-[2.5rem] shadow-sm border border-gray-100 overflow-hidden">
-                <div className="px-10 py-8 border-b border-gray-50 flex items-center justify-between">
-                    <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 bg-gray-50 rounded-2xl flex items-center justify-center border border-gray-100 shadow-sm">
-                            <Clock className="w-6 h-6 text-bakery-primary" />
+                <div className="px-6 py-5 border-b border-gray-50 flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                        <div className="w-9 h-9 bg-gray-50 rounded-xl flex items-center justify-center border border-gray-100 shadow-sm">
+                            <Clock className="w-4 h-4 text-bakery-primary" />
                         </div>
                         <div>
-                            <h2 className="text-xl font-black text-gray-900 uppercase tracking-tight">Opening Hours</h2>
+                            <h2 className="text-sm font-black text-gray-900 uppercase tracking-tight">Opening Hours</h2>
                             <p className="text-[10px] font-black text-gray-400 uppercase tracking-widest mt-0.5">Store Schedule</p>
                         </div>
                     </div>
                 </div>
-                <div className="p-10">
+                <div className="p-6">
                     <div className="space-y-4">
                         {Object.entries(settings.operatingHours || {}).map(([day, hours]) => (
                             <div key={day} className="flex items-center gap-6 p-4 rounded-2xl hover:bg-gray-50 transition-colors group">

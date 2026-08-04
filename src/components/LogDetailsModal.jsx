@@ -37,7 +37,7 @@ const LogDetailsModal = ({ log, isOpen, onClose }) => {
                             <Terminal className="w-10 h-10 text-gray-900" />
                         </div>
                         <div>
-                            <h2 className="text-3xl font-black text-gray-900 uppercase tracking-tight">Activity Log</h2>
+                            <h2 className="text-xl sm:text-2xl font-black text-gray-900 uppercase tracking-tight">Activity Log</h2>
                             <p className="text-[10px] font-black text-gray-400 uppercase tracking-[0.2em] mt-1 italic">Event ID: {log._id}</p>
                         </div>
                     </div>

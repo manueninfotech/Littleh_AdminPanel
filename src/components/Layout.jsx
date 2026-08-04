@@ -1,5 +1,5 @@
 import { Outlet, Link, useLocation, useNavigate, useParams } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useAuth } from '../context/AuthContext';
 import {
     LayoutDashboard,
@@ -19,7 +19,9 @@ import {
     History,
     Truck,
     UserCog,
-    Mail
+    Mail,
+    Menu,
+    X
 } from 'lucide-react';
 import logo from '../assets/littleh-logo.png';
 
@@ -27,6 +29,7 @@ export default function Layout() {
     const { logout } = useAuth();
     const navigate = useNavigate();
     const location = useLocation();
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
     const { brand } = useParams();
     const b = brand || 'littleh';
@@ -40,6 +43,11 @@ export default function Layout() {
             }
         }
     }, [brand, navigate, location.pathname]);
+
+    // Close mobile menu whenever route changes
+    useEffect(() => {
+        setMobileMenuOpen(false);
+    }, [location.pathname]);
 
     const handleLogout = () => {
         logout();
@@ -70,31 +78,68 @@ export default function Layout() {
     };
 
     return (
-        <div className="min-h-screen bg-bakery-bg flex selection:bg-bakery-primary selection:text-white font-sans text-bakery-primary">
+        <div className="min-h-screen bg-bakery-bg flex flex-col lg:flex-row selection:bg-bakery-primary selection:text-white font-sans text-bakery-primary">
+            {/* Mobile Header Bar */}
+            <header className="lg:hidden sticky top-0 z-30 bg-white border-b border-gray-100 px-4 py-3 flex items-center justify-between shadow-xs">
+                <div className="flex items-center gap-3">
+                    <button
+                        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                        className="p-2 rounded-xl text-bakery-primary hover:bg-bakery-bg transition-colors"
+                        aria-label="Toggle Navigation Menu"
+                    >
+                        {mobileMenuOpen ? <X className="w-6 h-6 text-bakery-primary" /> : <Menu className="w-6 h-6 text-bakery-primary" />}
+                    </button>
+                    <img src={logo} alt="LittleH Logo" className="h-9 w-auto object-contain" />
+                </div>
+                <span className="text-[10px] font-black text-bakery-primary uppercase tracking-widest bg-bakery-bg px-3 py-1 rounded-full border border-bakery-light">
+                    {b.toUpperCase()}
+                </span>
+            </header>
+
+            {/* Mobile Backdrop Overlay */}
+            {mobileMenuOpen && (
+                <div
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="fixed inset-0 bg-black/40 backdrop-blur-xs z-40 lg:hidden transition-opacity duration-300"
+                />
+            )}
+
             {/* Sidebar */}
-            <aside className="w-80 bg-white border-r border-gray-100 my-5 ml-5 rounded-[2.5rem] shadow-2xl shadow-gray-200/50 flex flex-col h-[calc(100vh-40px)] sticky top-5 overflow-hidden z-20">
+            <aside className={`
+                bg-white border-r border-gray-100 flex flex-col z-50 transition-all duration-300 ease-in-out
+                lg:w-80 lg:my-5 lg:ml-5 lg:rounded-[2.5rem] lg:shadow-2xl lg:shadow-gray-200/50 lg:h-[calc(100vh-40px)] lg:sticky lg:top-5 lg:translate-x-0
+                fixed inset-y-0 left-0 w-72 sm:w-80 h-full rounded-r-[2rem] shadow-2xl
+                ${mobileMenuOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
+            `}>
                 {/* Logo Area */}
-                <div className="p-8 border-b border-gray-50 bg-white">
-                    <div className="flex flex-col items-center gap-2">
+                <div className="p-6 lg:p-8 border-b border-gray-50 bg-white flex items-center justify-between lg:block">
+                    <div className="flex flex-col items-center gap-2 w-full">
                         <img
                             src={logo}
                             alt="LittleH Logo"
-                            className="h-24 w-auto object-contain scale-125"
+                            className="h-16 lg:h-20 w-auto object-contain"
                         />
                         <p className="text-[10px] font-black text-bakery-primary font-playfair uppercase tracking-[0.25em]">Admin Portal</p>
                     </div>
+                    <button
+                        onClick={() => setMobileMenuOpen(false)}
+                        className="lg:hidden p-2 rounded-xl text-gray-400 hover:text-gray-600"
+                    >
+                        <X className="w-5 h-5" />
+                    </button>
                 </div>
 
                 {/* Navigation */}
-                <nav className="p-6 flex-1 overflow-y-auto space-y-2 no-scrollbar">
+                <nav className="p-4 lg:p-6 flex-1 overflow-y-auto space-y-2 no-scrollbar">
                     {navItems.map((item) => {
                         const active = isActive(item.path);
                         return (
                             <Link
                                 key={item.path}
                                 to={item.path}
+                                onClick={() => setMobileMenuOpen(false)}
                                 className={`
-                                    flex items-center gap-4 px-6 py-4 rounded-2xl transition-all group duration-300
+                                    flex items-center gap-4 px-5 py-3.5 lg:px-6 lg:py-4 rounded-2xl transition-all group duration-300
                                     ${active
                                         ? 'bg-bakery-primary text-white shadow-xl shadow-bakery-accent/30 scale-[1.02]'
                                         : 'text-gray-400 hover:text-bakery-primary hover:bg-bakery-light hover:pl-7'
@@ -109,10 +154,10 @@ export default function Layout() {
                 </nav>
 
                 {/* Logout Button */}
-                <div className="p-6 border-t border-gray-50 bg-gray-50/30">
+                <div className="p-4 lg:p-6 border-t border-gray-50 bg-gray-50/30">
                     <button
                         onClick={handleLogout}
-                        className="flex items-center gap-4 px-6 py-4 rounded-2xl bg-red-50 text-red-500 transition-all hover:bg-red-600 hover:text-white group w-full hover:shadow-lg hover:shadow-red-200"
+                        className="flex items-center gap-4 px-5 py-3.5 lg:px-6 lg:py-4 rounded-2xl bg-red-50 text-red-500 transition-all hover:bg-red-600 hover:text-white group w-full hover:shadow-lg hover:shadow-red-200"
                     >
                         <LogOut className="w-5 h-5 transition-transform group-hover:translate-x-1" />
                         <span className="font-black uppercase text-[10px] tracking-[0.2em]">Logout Session</span>
@@ -121,7 +166,7 @@ export default function Layout() {
             </aside>
 
             {/* Main Content */}
-            <main className="flex-1 p-10 overflow-x-hidden overflow-y-auto h-screen scroll-smooth">
+            <main className="flex-1 p-4 sm:p-6 lg:p-10 overflow-x-hidden overflow-y-auto min-h-screen lg:h-screen scroll-smooth">
                 <div className="max-w-[1600px] mx-auto pb-10">
                     <Outlet />
                 </div>

@@ -98,14 +98,14 @@ export default function Dashboard() {
                 </div>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                 {statCards.map((stat, index) => (
                     <StatCard key={index} {...stat} onClick={() => navigate(stat.path)} />
                 ))}
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <div className="bg-white rounded-[2.5rem] shadow-sm border border-gray-100 p-8 flex flex-col min-h-[500px]">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
+                <div className="bg-white rounded-[2.5rem] shadow-sm border border-gray-100 p-4 sm:p-8 flex flex-col min-h-[500px]">
                     <div className="flex items-center justify-between mb-8">
                         <div>
                             <h2 className="text-xl font-black uppercase text-gray-900 tracking-tight">Recent Activity</h2>
@@ -116,7 +116,7 @@ export default function Dashboard() {
                     <div className="space-y-4 flex-1">
                         {stats?.recentOrders?.length > 0 ? (
                             stats.recentOrders.map((order) => (
-                                <div key={order._id} onClick={() => navigate(`/${urlBrand}/orders`)} className="flex items-center justify-between p-5 bg_gray-50/50 rounded-3xl hover:bg-white hover:shadow-xl hover:shadow-gray-100 transition-all cursor-pointer border border-transparent hover:border-gray-100 group">
+                                <div key={order._id} onClick={() => navigate(`/${urlBrand}/orders`)} className="flex items-center justify-between p-5 bg-gray-50/50 rounded-3xl hover:bg-white hover:shadow-xl hover:shadow-gray-100 transition-all cursor-pointer border border-transparent hover:border-gray-100 group">
                                     <div className="flex items-center gap-4">
                                         <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform">
                                             <ShoppingCart className="w-6 h-6 text-bakery-primary" />
@@ -138,7 +138,7 @@ export default function Dashboard() {
                     </div>
                 </div>
 
-                <div className="bg-white rounded-[2.5rem] shadow-sm border border-gray-100 p-8 flex flex-col min-h-[500px]">
+                <div className="bg-white rounded-[2.5rem] shadow-sm border border-gray-100 p-4 sm:p-8 flex flex-col min-h-[500px]">
                     <div className="flex items-center justify-between mb-8">
                         <div>
                             <h2 className="text-xl font-black uppercase text-gray-900 tracking-tight">Best Sellers</h2>
@@ -155,7 +155,7 @@ export default function Dashboard() {
                                             <Package className="w-6 h-6 text-orange-500" />
                                         </div>
                                         <div className="min-w-0">
-                                            <p className="font-black text-gray-900 uppercase text-sm truncate">{product.name}</p>
+                                            <p className="font-black text-gray-900 uppercase text-sm break-words">{product.name}</p>
                                             <p className="text-[10px] font-black text-gray-400 uppercase tracking-tight">{product.orderCount || 0} Successful sales</p>
                                         </div>
                                     </div>

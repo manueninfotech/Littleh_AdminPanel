@@ -109,7 +109,7 @@ export default function Categories() {
                 </div>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
                 <StatCard label="Total Categories" value={totalCount} icon={LayoutGrid} theme="blue" desc="Groups in use" loading={loading && !data} />
             </div>
 
@@ -124,7 +124,7 @@ export default function Categories() {
 
             <div className="min-h-[400px]">
                 {categories.length > 0 ? (
-                    <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4 sm:gap-6">
                         {categories.map((category) => (
                             <div key={category._id} className="bg-white rounded-[2rem] shadow-sm border-2 border-gray-50 overflow-hidden hover:shadow-2xl hover:-translate-y-1 transition-all flex flex-col group">
                                 <div className="h-40 bg-gray-50/50 flex items-center justify-center relative group-hover:bg-bakery-bg transition-colors">

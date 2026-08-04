@@ -182,7 +182,7 @@ export default function Riders() {
                 </button>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
                 <StatCard label="Total Riders" value={statsData?.totalRiders || 0} icon={Users} theme="bakery" desc="All riders" loading={statsLoading} />
                 <StatCard label="Online Now" value={statsData?.activeRiders || 0} icon={Bike} theme="bakery" desc="Currently online" loading={statsLoading} />
                 <StatCard label="New Applications" value={statsData?.pendingApprovals || 0} icon={Clock} theme="orange" desc="Need approval" loading={statsLoading} />
@@ -217,7 +217,7 @@ export default function Riders() {
 
             <div className="min-h-[400px]">
                 {displayRiders.length > 0 ? (
-                    <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4 sm:gap-6">
                         {displayRiders.map((rider) => (
                             <RiderCard
                                 key={rider._id}

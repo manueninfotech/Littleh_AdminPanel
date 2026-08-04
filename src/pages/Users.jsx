@@ -164,7 +164,7 @@ const UsersPage = () => {
                 </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
                 <StatCard
                     label="Total Accounts"
                     value={stats.totalUsers}
@@ -230,7 +230,7 @@ const UsersPage = () => {
 
             {/* Content Area */}
             {loading && users.length === 0 ? (
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 animate-pulse">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4 sm:gap-6 animate-pulse">
                     {[1, 2, 3, 4, 5, 6].map(i => (
                         <div key={i} className="bg-white rounded-[2rem] border border-gray-100 h-64"></div>
                     ))}
@@ -242,7 +242,7 @@ const UsersPage = () => {
                 </div>
             ) : (
                 <>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4 sm:gap-6">
                         {users.map((user) => (
                             <UserCard
                                 key={user._id}

@@ -133,7 +133,7 @@ const Customers = () => {
                 </button>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
                 <StatCard label="Total Customers" value={stats?.totalCustomers || 0} icon={Users} theme="blue" desc="All customers" loading={statsLoading} />
                 <StatCard label="Active Accounts" value={stats?.activeCustomers || 0} icon={UserCheck} theme="green" desc="Can order" loading={statsLoading} />
                 <StatCard label="With Orders" value={stats?.customersWithOrders || 0} icon={TrendingUp} theme="purple" desc="Ordered at least once" loading={statsLoading} />
@@ -156,7 +156,7 @@ const Customers = () => {
 
             <div className="min-h-[400px]">
                 {customers.length > 0 ? (
-                    <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4 sm:gap-6">
                         {customers.map((customer) => (
                             <CustomerCard key={customer._id} customer={customer} onViewDetails={handleViewDetails} onToggleStatus={handleToggleStatus} onDelete={handleDelete} />
                         ))}

@@ -84,7 +84,7 @@ export default function Dashboard() {
         <div className="space-y-8 max-w-7xl mx-auto">
             <div className="flex items-center justify-between">
                 <div>
-                    <h1 className="text-4xl font-black text-gray-900 uppercase tracking-tighter">Dashboard</h1>
+                    <h1 className="text-xl sm:text-2xl font-black text-gray-900 uppercase tracking-tight">Dashboard</h1>
                     <p className="text-gray-500 font-bold uppercase text-[10px] tracking-[0.2em] mt-1 italic">Overview of your business</p>
                 </div>
                 <div className="flex items-center gap-4">
@@ -108,7 +108,7 @@ export default function Dashboard() {
                 <div className="bg-white rounded-[2.5rem] shadow-sm border border-gray-100 p-4 sm:p-8 flex flex-col min-h-[500px]">
                     <div className="flex items-center justify-between mb-8">
                         <div>
-                            <h2 className="text-xl font-black uppercase text-gray-900 tracking-tight">Recent Activity</h2>
+                            <h2 className="text-sm sm:text-base font-black uppercase text-gray-900 tracking-tight">Recent Activity</h2>
                             <p className="text-[10px] font-black text-gray-400 uppercase tracking-widest mt-1">Latest incoming orders</p>
                         </div>
                         <button onClick={() => navigate(`/${urlBrand}/orders`)} className="p-3 bg-gray-50 rounded-2xl hover:bg-black hover:text-white transition-all"><ArrowRight className="w-5 h-5" /></button>
@@ -141,7 +141,7 @@ export default function Dashboard() {
                 <div className="bg-white rounded-[2.5rem] shadow-sm border border-gray-100 p-4 sm:p-8 flex flex-col min-h-[500px]">
                     <div className="flex items-center justify-between mb-8">
                         <div>
-                            <h2 className="text-xl font-black uppercase text-gray-900 tracking-tight">Best Sellers</h2>
+                            <h2 className="text-sm sm:text-base font-black uppercase text-gray-900 tracking-tight">Best Sellers</h2>
                             <p className="text-[10px] font-black text-gray-400 uppercase tracking-widest mt-1">Top performing products</p>
                         </div>
                         <button onClick={() => navigate(`/${urlBrand}/products`)} className="p-3 bg-gray-50 rounded-2xl hover:bg-black hover:text-white transition-all"><TrendingUp className="w-5 h-5" /></button>

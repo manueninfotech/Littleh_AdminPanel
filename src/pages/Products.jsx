@@ -243,11 +243,11 @@ export default function Products() {
                                     </div>
                                     <div className="p-6 space-y-4">
                                         <div>
-                                            <div className="flex items-center gap-2 mb-1">
-                                                <h3 className="font-black text-gray-900 uppercase truncate text-sm flex-1">{product.name}</h3>
-                                                {product.isSeasonal && <span className="bg-orange-50 text-orange-600 text-[8px] font-black uppercase px-1.5 py-0.5 rounded-md">Seasonal</span>}
+                                             <div className="flex items-center gap-2 mb-1">
+                                                <h3 className="font-black text-gray-900 uppercase break-words text-sm flex-1">{product.name}</h3>
+                                                {product.isSeasonal && <span className="bg-orange-50 text-orange-600 text-[8px] font-black uppercase px-1.5 py-0.5 rounded-md shrink-0">Seasonal</span>}
                                             </div>
-                                            <p className="text-xs text-gray-400 font-bold line-clamp-1 mb-2">{product.description}</p>
+                                            <p className="text-xs text-gray-400 font-bold break-words mb-2">{product.description}</p>
                                             <p className="text-[10px] font-black uppercase tracking-widest text-bakery-primary">{categoryName}</p>
 
                                         </div>

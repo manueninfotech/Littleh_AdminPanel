@@ -133,8 +133,8 @@ export default function Categories() {
                                 </div>
                                 <div className="p-6 flex flex-col flex-1">
                                     <div className="flex-1">
-                                        <h3 className="font-black text-gray-900 uppercase truncate text-sm mb-1">{category.name}</h3>
-                                        <p className="text-[10px] text-gray-400 font-bold line-clamp-2 leading-relaxed">{category.description || 'Global classification group'}</p>
+                                        <h3 className="font-black text-gray-900 uppercase break-words text-sm mb-1">{category.name}</h3>
+                                        <p className="text-[10px] text-gray-400 font-bold break-words leading-relaxed">{category.description || 'Global classification group'}</p>
                                         <p className={`text-[8px] font-black uppercase tracking-widest mt-2 ${category.brand === 'littleh' ? 'text-pink-600' : 'text-bakery-primary'}`}>
                                             {category.brand === 'littleh' ? 'LITTLEH BAKERY' : 'TEAS N TREES'}
                                         </p>

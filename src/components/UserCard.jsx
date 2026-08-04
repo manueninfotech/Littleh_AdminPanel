@@ -28,7 +28,7 @@ const UserCard = ({ user, onToggleStatus, onDelete, onViewDetails }) => {
                         <RoleIcon className={`w-7 h-7 ${user.role === 'admin' ? 'text-purple-600' : user.role === 'manager' ? 'text-blue-600' : 'text-orange-600'}`} />
                     </div>
                     <div>
-                        <h3 className="font-black text-gray-900 uppercase tracking-tight text-sm truncate max-w-[150px]">{user.name}</h3>
+                        <h3 className="font-black text-gray-900 uppercase tracking-tight text-sm break-words">{user.name}</h3>
                         <p className="text-[10px] font-black text-gray-400 uppercase tracking-widest mt-0.5">{roleStyle.label}</p>
                     </div>
                 </div>
@@ -47,7 +47,7 @@ const UserCard = ({ user, onToggleStatus, onDelete, onViewDetails }) => {
                         <div className="p-2 bg-gray-50 rounded-lg">
                             <Mail className="w-3.5 h-3.5 text-gray-400" />
                         </div>
-                        <span className="text-[10px] font-black text-gray-500 lowercase tracking-widest truncate max-w-[180px]">{user.email || 'NO EMAIL'}</span>
+                        <span className="text-[10px] font-black text-gray-500 lowercase tracking-widest break-all min-w-0 flex-1">{user.email || 'NO EMAIL'}</span>
                     </div>
                     <div className="flex items-center gap-3">
                         <div className="p-2 bg-gray-50 rounded-lg">

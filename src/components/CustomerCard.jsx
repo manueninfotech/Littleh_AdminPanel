@@ -27,7 +27,7 @@ const CustomerCard = ({ customer, onViewDetails, onToggleStatus, onDelete }) => 
                         <User className="w-7 h-7 text-blue-600" />
                     </div>
                     <div>
-                        <h3 className="font-black text-gray-900 uppercase tracking-tight text-sm truncate max-w-[150px]">{customer.name || 'Anonymous'}</h3>
+                        <h3 className="font-black text-gray-900 uppercase tracking-tight text-sm break-words">{customer.name || 'Anonymous'}</h3>
                         <p className="text-[10px] font-black text-gray-400 uppercase tracking-widest mt-0.5">Joined {formatDate(customer.createdAt)}</p>
                     </div>
                 </div>
@@ -51,7 +51,7 @@ const CustomerCard = ({ customer, onViewDetails, onToggleStatus, onDelete }) => 
                         <div className="p-2 bg-gray-50 rounded-lg">
                             <Mail className="w-3.5 h-3.5 text-gray-400" />
                         </div>
-                        <span className="text-[10px] font-black text-gray-500 lowercase tracking-widest truncate max-w-[180px]">{customer.email}</span>
+                        <span className="text-[10px] font-black text-gray-500 lowercase tracking-widest break-all min-w-0 flex-1">{customer.email}</span>
                     </div>
                 )}
             </div>

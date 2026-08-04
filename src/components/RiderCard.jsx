@@ -15,7 +15,7 @@ export default function RiderCard({ rider, onViewDetails, onApprove, onReject, o
                         <Bike className="w-7 h-7 text-bakery-primary" />
                     </div>
                     <div>
-                        <h3 className="font-black text-gray-900 uppercase tracking-tight text-sm truncate max-w-[150px]">{rider.name}</h3>
+                        <h3 className="font-black text-gray-900 uppercase tracking-tight text-sm break-words">{rider.name}</h3>
                         <p className="text-[10px] font-black text-gray-400 uppercase tracking-widest mt-0.5">{rider.mobile}</p>
                     </div>
                 </div>

@@ -143,7 +143,7 @@ const Deliveries = () => {
                 </button>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
                 <StatCard label="Active" value={stats?.activeDeliveries || 0} icon={Truck} theme="indigo" desc="On the way" loading={statsLoading} />
                 <StatCard label="Completed" value={stats?.completedDeliveries || 0} icon={CheckCircle2} theme="bakery" desc="Landed today" loading={statsLoading} />
                 <StatCard label="Earnings" value={`₹${stats?.totalEarnings || 0}`} icon={IndianRupee} theme="amber" desc="Total payouts" loading={statsLoading} />
@@ -258,7 +258,7 @@ const StatCard = ({ label, value, icon: Icon, theme, desc, loading }) => {
     const style = themes[theme] || themes.indigo;
     const [gradientFrom, gradientTo, shadow, textColor, bgColor] = style.split(' ');
     return (
-        <div className="relative overflow-hidden bg-white p-6 rounded-[2rem] border border-gray-100 shadow-sm hover:shadow-xl transition-all group">
+        <div className="relative overflow-hidden bg-white p-4 sm:p-5 rounded-[1.5rem] border border-gray-100 shadow-sm flex flex-col justify-between">
             <div className="relative flex items-center justify-between">
                 <div className="space-y-1">
                     <p className="text-[10px] font-black text-gray-400 uppercase tracking-widest leading-none">{label}</p>
@@ -268,7 +268,7 @@ const StatCard = ({ label, value, icon: Icon, theme, desc, loading }) => {
                         <span className={`text-[10px] font-black uppercase tracking-tight ${textColor}`}>{desc}</span>
                     </div>
                 </div>
-                <div className={`p-4 rounded-2xl bg-gradient-to-br ${gradientFrom} ${gradientTo} text-white shadow-lg ${shadow} transform group-hover:rotate-12 transition-all`}>
+                <div className={`p-4 rounded-2xl bg-gradient-to-br ${gradientFrom} ${gradientTo} text-white shadow-lg ${shadow}`}>
                     <Icon className="w-7 h-7" />
                 </div>
             </div>

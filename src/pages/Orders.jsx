@@ -142,7 +142,7 @@ export default function Orders() {
             </div>
 
             {/* Gradient Stats Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
                 {statCards.map((stat, index) => (
                     <StatCard key={index} {...stat} />
                 ))}
@@ -452,7 +452,7 @@ const StatCard = ({ title, value, icon: Icon, theme, desc, onClick }) => {
     const style = themes[theme] || themes.blue;
     const [gradientFrom, gradientTo, shadow, textColor, bgColor] = style.split(' ');
     return (
-        <div onClick={onClick} className="relative overflow-hidden bg-white p-6 rounded-[2rem] border border-gray-100 shadow-sm hover:shadow-xl transition-all cursor-pointer group active:scale-95">
+        <div onClick={onClick} className="relative overflow-hidden bg-white p-4 sm:p-5 rounded-[1.5rem] border border-gray-100 shadow-sm cursor-pointer flex flex-col justify-between">
             <div className="relative flex items-center justify-between">
                 <div className="space-y-1">
                     <p className="text-[10px] font-black text-gray-400 uppercase tracking-[0.2em] leading-none">{title}</p>
@@ -462,7 +462,7 @@ const StatCard = ({ title, value, icon: Icon, theme, desc, onClick }) => {
                         <span className={`text-[10px] font-black uppercase tracking-tight ${textColor}`}>{desc}</span>
                     </div>
                 </div>
-                <div className={`p-4 rounded-[1.2rem] bg-gradient-to-br ${gradientFrom} ${gradientTo} text-white shadow-lg ${shadow} transform group-hover:rotate-12 transition-all`}>
+                <div className={`p-4 rounded-[1.2rem] bg-gradient-to-br ${gradientFrom} ${gradientTo} text-white shadow-lg ${shadow}`}>
                     <Icon className="w-6 h-6" />
                 </div>
             </div>

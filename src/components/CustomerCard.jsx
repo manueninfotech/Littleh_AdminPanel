@@ -19,7 +19,7 @@ const CustomerCard = ({ customer, onViewDetails, onToggleStatus, onDelete }) => 
     };
 
     return (
-        <div className="bg-white rounded-[2rem] shadow-sm border border-gray-100 overflow-hidden hover:shadow-xl transition-all group p-6">
+        <div className="bg-white rounded-[2rem] shadow-sm border border-gray-100 overflow-hidden p-6">
             {/* Header Area */}
             <div className="flex items-start justify-between mb-6">
                 <div className="flex items-center gap-4">

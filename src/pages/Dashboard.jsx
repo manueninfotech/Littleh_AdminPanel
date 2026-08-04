@@ -116,9 +116,9 @@ export default function Dashboard() {
                     <div className="space-y-4 flex-1">
                         {stats?.recentOrders?.length > 0 ? (
                             stats.recentOrders.map((order) => (
-                                <div key={order._id} onClick={() => navigate(`/${urlBrand}/orders`)} className="flex items-center justify-between p-5 bg-gray-50/50 rounded-3xl hover:bg-white hover:shadow-xl hover:shadow-gray-100 transition-all cursor-pointer border border-transparent hover:border-gray-100 group">
+                                <div key={order._id} onClick={() => navigate(`/${urlBrand}/orders`)} className="flex items-center justify-between p-5 bg-gray-50/50 rounded-3xl cursor-pointer border border-transparent group">
                                     <div className="flex items-center gap-4">
-                                        <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform">
+                                        <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center shadow-sm">
                                             <ShoppingCart className="w-6 h-6 text-bakery-primary" />
                                         </div>
                                         <div className="min-w-0 flex flex-col items-start text-left">
@@ -149,9 +149,9 @@ export default function Dashboard() {
                     <div className="space-y-4 flex-1">
                         {stats?.topProducts?.length > 0 ? (
                             stats.topProducts.map((product) => (
-                                <div key={product._id} onClick={() => navigate(`/${urlBrand}/products`)} className="flex items-center justify-between p-5 bg-gray-50/50 rounded-3xl hover:bg-white hover:shadow-xl hover:shadow-gray-100 transition-all cursor-pointer border border-transparent hover:border-gray-100 group">
+                                <div key={product._id} onClick={() => navigate(`/${urlBrand}/products`)} className="flex items-center justify-between p-5 bg-gray-50/50 rounded-3xl cursor-pointer border border-transparent group">
                                     <div className="flex items-center gap-4">
-                                        <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform">
+                                        <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center shadow-sm">
                                             <Package className="w-6 h-6 text-orange-500" />
                                         </div>
                                         <div className="min-w-0">
@@ -185,7 +185,7 @@ const StatCard = ({ title, value, icon: Icon, theme, desc, onClick }) => {
     const style = themes[theme] || themes.blue;
     const [gradientFrom, gradientTo, shadow, textColor, bgColor] = style.split(' ');
     return (
-        <div onClick={onClick} className="relative overflow-hidden bg-white p-8 rounded-[3rem] border border-gray-100 shadow-sm hover:shadow-2xl transition-all cursor-pointer group active:scale-95">
+        <div onClick={onClick} className="relative overflow-hidden bg-white p-8 rounded-[3rem] border border-gray-100 shadow-sm cursor-pointer">
             <div className="relative flex items-center justify-between">
                 <div className="space-y-1">
                     <p className="text-[10px] font-black text-gray-400 uppercase tracking-[0.2em] leading-none">{title}</p>
@@ -195,7 +195,7 @@ const StatCard = ({ title, value, icon: Icon, theme, desc, onClick }) => {
                         <span className={`text-[10px] font-black uppercase tracking-tight ${textColor}`}>{desc}</span>
                     </div>
                 </div>
-                <div className={`p-5 rounded-[1.5rem] bg-gradient-to-br ${gradientFrom} ${gradientTo} text-white shadow-xl ${shadow} transform group-hover:rotate-12 group-hover:scale-110 transition-all`}>
+                <div className={`p-5 rounded-[1.5rem] bg-gradient-to-br ${gradientFrom} ${gradientTo} text-white shadow-xl ${shadow}`}>
                     <Icon className="w-8 h-8" />
                 </div>
             </div>

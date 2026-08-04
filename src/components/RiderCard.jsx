@@ -7,7 +7,7 @@ export default function RiderCard({ rider, onViewDetails, onApprove, onReject, o
     };
 
     return (
-        <div className="bg-white rounded-[2rem] shadow-sm border border-gray-100 overflow-hidden hover:shadow-xl transition-all group">
+        <div className="bg-white rounded-[2rem] shadow-sm border border-gray-100 overflow-hidden">
             {/* Header Area */}
             <div className="p-6 pb-0 flex items-start justify-between">
                 <div className="flex items-center gap-4">

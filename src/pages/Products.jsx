@@ -227,7 +227,7 @@ export default function Products() {
                                 : categoryNameById.get(product.category) || 'Uncategorized';
 
                             return (
-                                <div key={product._id} className={`group bg-white rounded-[2rem] shadow-sm border-2 overflow-hidden hover:shadow-2xl hover:-translate-y-1 transition-all ${selectedProducts.has(product._id) ? 'border-bakery-primary ring-4 ring-bakery-light' : 'border-gray-50'}`}>
+                                <div key={product._id} className={`bg-white rounded-[2rem] shadow-sm border-2 overflow-hidden ${selectedProducts.has(product._id) ? 'border-bakery-primary ring-4 ring-bakery-light' : 'border-gray-50'}`}>
                                     <div className="h-56 bg-gray-50 flex items-center justify-center relative">
                                         {product.image ? (
                                             <img src={product.image} alt={product.name} className="w-full h-full object-cover" />

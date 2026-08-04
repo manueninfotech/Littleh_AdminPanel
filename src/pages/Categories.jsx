@@ -126,9 +126,9 @@ export default function Categories() {
                 {categories.length > 0 ? (
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4 sm:gap-6">
                         {categories.map((category) => (
-                            <div key={category._id} className="bg-white rounded-[2rem] shadow-sm border-2 border-gray-50 overflow-hidden hover:shadow-2xl hover:-translate-y-1 transition-all flex flex-col group">
-                                <div className="h-40 bg-gray-50/50 flex items-center justify-center relative group-hover:bg-bakery-bg transition-colors">
-                                    <span className="text-7xl transform group-hover:scale-110 group-hover:rotate-12 transition-all duration-500 drop-shadow-sm">{category.icon || '📦'}</span>
+                            <div key={category._id} className="bg-white rounded-[2rem] shadow-sm border-2 border-gray-50 overflow-hidden flex flex-col">
+                                <div className="h-40 bg-gray-50/50 flex items-center justify-center relative">
+                                    <span className="text-7xl drop-shadow-sm">{category.icon || '📦'}</span>
                                     <div className="absolute bottom-4 right-4 bg-white/80 backdrop-blur-md px-2 py-1 rounded-lg border border-gray-100"><span className="text-[8px] font-black uppercase text-gray-400 select-none">Order: {category.displayOrder || 0}</span></div>
                                 </div>
                                 <div className="p-6 flex flex-col flex-1">

@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { Save, Building, Phone, Mail, Clock, MapPin, DollarSign, Bike } from 'lucide-react';
+import { Save, Building, Phone, Mail, Clock, MapPin, DollarSign, Bike, Power, Store } from 'lucide-react';
 import { useSocket } from '../../context/SocketContext';
 import api from '../../utils/api';
 
 const GeneralSettings = () => {
     const [loading, setLoading] = useState(true);
     const [saving, setSaving] = useState(false);
+    const [togglingStatus, setTogglingStatus] = useState(false);
     const { socket } = useSocket();
     const [settings, setSettings] = useState({
         // Default structure
+        isStoreActive: true,
         contactPhone: '',
         contactEmail: '',
         address: '',
@@ -110,10 +112,86 @@ const GeneralSettings = () => {
         }
     };
 
+    const handleToggleStoreStatus = async () => {
+        const currentActive = settings.isStoreActive !== false;
+        const newStatus = !currentActive;
+        setTogglingStatus(true);
+        try {
+            const response = await api.put('/admin/settings', { isStoreActive: newStatus });
+            if (response.data.success) {
+                setSettings(prev => ({ ...prev, isStoreActive: newStatus }));
+            }
+        } catch (error) {
+            console.error('Error toggling storefront status:', error);
+            alert('Failed to update storefront status');
+        } finally {
+            setTogglingStatus(false);
+        }
+    };
+
     if (loading) return <div className="p-8 text-center">Loading settings...</div>;
+
+    const isLittleHActive = settings.isStoreActive !== false;
 
     return (
         <form onSubmit={handleSubmit} className="space-y-12 max-w-5xl mx-auto pb-20">
+            {/* Storefront Visibility & Ordering Toggle */}
+            <div className={`rounded-[2.5rem] p-8 border transition-all duration-300 ${
+                isLittleHActive 
+                    ? 'bg-gradient-to-r from-emerald-50/70 to-teal-50/70 border-emerald-200 shadow-sm' 
+                    : 'bg-gradient-to-r from-rose-50/70 to-amber-50/70 border-rose-200 shadow-sm'
+            }`}>
+                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+                    <div className="flex items-center gap-5">
+                        <div className={`w-14 h-14 rounded-2xl flex items-center justify-center border shadow-sm transition-colors ${
+                            isLittleHActive
+                                ? 'bg-emerald-500 text-white border-emerald-400 shadow-emerald-500/20'
+                                : 'bg-rose-500 text-white border-rose-400 shadow-rose-500/20'
+                        }`}>
+                            <Power className="w-7 h-7" />
+                        </div>
+                        <div>
+                            <div className="flex items-center gap-3">
+                                <h2 className="text-xl font-black text-gray-900 uppercase tracking-tight">
+                                    Customer App Storefront
+                                </h2>
+                                <span className={`px-3 py-1 rounded-full text-xs font-black uppercase tracking-wider ${
+                                    isLittleHActive
+                                        ? 'bg-emerald-100 text-emerald-800'
+                                        : 'bg-rose-100 text-rose-800'
+                                }`}>
+                                    {isLittleHActive ? '🟢 ONLINE & ACTIVE' : '🔴 OFFLINE / HIDDEN'}
+                                </span>
+                            </div>
+                            <p className="text-xs font-medium text-gray-600 mt-1 max-w-xl">
+                                {isLittleHActive
+                                    ? 'Little H is visible to customers on the customer app and accepting orders.'
+                                    : 'Little H is turned OFF and hidden from the customer app. Any customer visiting /littleh will be automatically redirected to Teas N Trees.'}
+                            </p>
+                        </div>
+                    </div>
+
+                    <button
+                        type="button"
+                        disabled={togglingStatus}
+                        onClick={handleToggleStoreStatus}
+                        className={`relative inline-flex h-11 w-20 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 ${
+                            isLittleHActive 
+                                ? 'bg-emerald-600 focus:ring-emerald-500' 
+                                : 'bg-gray-300 focus:ring-gray-400'
+                        } ${togglingStatus ? 'opacity-60 cursor-not-allowed' : ''}`}
+                    >
+                        <span className="sr-only">Toggle Little H Storefront</span>
+                        <span
+                            aria-hidden="true"
+                            className={`pointer-events-none inline-block h-10 w-10 transform rounded-full bg-white shadow-md ring-0 transition duration-300 ease-in-out ${
+                                isLittleHActive ? 'translate-x-9' : 'translate-x-0'
+                            }`}
+                        />
+                    </button>
+                </div>
+            </div>
+
             {/* Store Information */}
             <div className="bg-white rounded-[2.5rem] shadow-sm border border-gray-100 overflow-hidden">
                 <div className="px-10 py-8 border-b border-gray-50 flex items-center justify-between">

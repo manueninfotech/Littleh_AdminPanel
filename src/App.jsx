@@ -4,6 +4,7 @@ import { SocketProvider } from './context/SocketContext';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { Toaster } from 'react-hot-toast';
 import SocketGlobalRefresh from './components/SocketGlobalRefresh';
+import RiderAlerts from './components/RiderAlerts';
 import Login from './pages/Login';
 import Layout from './components/Layout';
 import Dashboard from './pages/Dashboard';
@@ -48,6 +49,7 @@ function App() {
           <BrowserRouter>
             <Toaster position="top-center" toastOptions={{ duration: 3000 }} />
             <SocketGlobalRefresh />
+            <RiderAlerts />
             <Routes>
               <Route path="/login" element={<Login />} />
               <Route path="/" element={<Navigate to="/littleh" replace />} />

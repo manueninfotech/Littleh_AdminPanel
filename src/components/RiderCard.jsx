@@ -17,6 +17,11 @@ export default function RiderCard({ rider, onViewDetails, onApprove, onReject, o
                     <div>
                         <h3 className="font-black text-gray-900 uppercase tracking-tight text-sm break-words">{rider.name}</h3>
                         <p className="text-[10px] font-black text-gray-400 uppercase tracking-widest mt-0.5">{rider.mobile}</p>
+                        {rider.pinResetAt && (
+                            <p className="text-[9px] font-black text-amber-600 uppercase tracking-widest mt-0.5" title={`Reset by the rider from the app${rider.pinResetCount > 1 ? ` (${rider.pinResetCount} times)` : ''}`}>
+                                PIN reset {new Date(rider.pinResetAt).toLocaleString('en-IN', { day: 'numeric', month: 'short', hour: 'numeric', minute: '2-digit' })}
+                            </p>
+                        )}
                     </div>
                 </div>
                 {!isPending && (

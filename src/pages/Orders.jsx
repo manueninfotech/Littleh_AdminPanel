@@ -52,7 +52,10 @@ export default function Orders() {
                 limit: pagination.limit
             });
             if (searchTerm) params.append('search', searchTerm);
-            if (statusFilter !== 'all') params.append('status', statusFilter);
+            // 'stale' is not a status: it lists orders the stale-order job has
+            // flagged (no activity for 24h) that are still open.
+            if (statusFilter === 'stale') params.append('stale', 'true');
+            else if (statusFilter !== 'all') params.append('status', statusFilter);
             const response = await api.get(`/admin/orders?${params.toString()}`);
             return response.data;
         },
@@ -69,11 +72,19 @@ export default function Orders() {
             queryClient.invalidateQueries({ queryKey: ['orders'] });
             queryClient.invalidateQueries({ queryKey: ['orders-stats'] });
         };
+        // The stale-order job flagged orders nobody has touched for 24 hours.
+        const handleStale = (data = {}) => {
+            const n = data.orders?.length || 0;
+            toast(`${n === 1 ? `Order #${data.orders[0].orderNumber} has` : `${n} orders have`} had no activity for 24 hours and will be cancelled automatically unless someone acts. See "Needs attention".`, { icon: '⏰', duration: 15000 });
+            handleUpdate();
+        };
         socket.on('order:new', handleUpdate);
         socket.on('order:status-updated', handleUpdate);
+        socket.on('order:stale', handleStale);
         return () => {
             socket.off('order:new', handleUpdate);
             socket.off('order:status-updated', handleUpdate);
+            socket.off('order:stale', handleStale);
         };
     }, [socket, queryClient]);
 
@@ -116,6 +127,7 @@ export default function Orders() {
 
     const filterOptions = [
         { label: 'All', value: 'all' },
+        { label: 'Needs attention', value: 'stale' },
         { label: 'Pending', value: 'pending' },
         { label: 'Confirmed', value: 'confirmed' },
         { label: 'Preparing', value: 'preparing' },
@@ -247,6 +259,16 @@ export default function Orders() {
                                                     isUpdating={updatingId === order._id}
                                                 />
                                             </div>
+                                            {order.staleFlaggedAt && !['delivered', 'cancelled'].includes(order.status) && (
+                                                <p className="mt-2 text-center text-[8px] font-black uppercase tracking-widest text-amber-700 bg-amber-50 border border-amber-200 rounded-md px-2 py-1" title="No change for 24 hours. Move it on, or it is cancelled automatically.">
+                                                    No activity 24h · auto-cancels {new Date(new Date(order.staleFlaggedAt).getTime() + 24 * 60 * 60 * 1000).toLocaleString('en-IN', { day: 'numeric', month: 'short', hour: 'numeric', minute: '2-digit' })}
+                                                </p>
+                                            )}
+                                            {order.status === 'cancelled' && order.cancelReason?.startsWith('Closed automatically') && (
+                                                <p className="mt-2 text-center text-[8px] font-black uppercase tracking-widest text-gray-500 bg-gray-50 border border-gray-200 rounded-md px-2 py-1" title={order.cancelReason}>
+                                                    Auto-cancelled: no activity
+                                                </p>
+                                            )}
                                         </td>
                                         <td className="px-6 py-5">
                                             <div className="flex flex-col items-center gap-2">

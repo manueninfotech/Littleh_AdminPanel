@@ -23,7 +23,7 @@ import {
     Menu,
     X
 } from 'lucide-react';
-import logo from '../assets/littleh-logo.png';
+import logo from '../assets/cream-n-crust-logo.png';
 
 export default function Layout() {
     const { logout } = useAuth();
@@ -89,7 +89,7 @@ export default function Layout() {
                     >
                         {mobileMenuOpen ? <X className="w-6 h-6 text-bakery-primary" /> : <Menu className="w-6 h-6 text-bakery-primary" />}
                     </button>
-                    <img src={logo} alt="LittleH Logo" className="h-9 w-auto object-contain" />
+                    <img src={logo} alt="Cream N Crust" className="h-9 w-auto object-contain" />
                 </div>
                 <span className="text-[10px] font-black text-bakery-primary uppercase tracking-widest bg-bakery-bg px-3 py-1 rounded-full border border-bakery-light">
                     {b.toUpperCase()}
@@ -116,7 +116,7 @@ export default function Layout() {
                     <div className="flex flex-col items-center gap-2 w-full">
                         <img
                             src={logo}
-                            alt="LittleH Logo"
+                            alt="Cream N Crust"
                             className="h-16 lg:h-20 w-auto object-contain"
                         />
                         <p className="text-[10px] font-black text-bakery-primary font-playfair uppercase tracking-[0.25em]">Admin Portal</p>

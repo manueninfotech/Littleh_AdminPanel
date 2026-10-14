@@ -165,8 +165,8 @@ const GeneralSettings = () => {
                             </div>
                             <p className="text-xs font-medium text-gray-600 mt-1 max-w-xl">
                                 {isLittleHActive
-                                    ? 'Little H is visible to customers on the customer app and accepting orders.'
-                                    : 'Little H is turned OFF and hidden from the customer app. Any customer visiting /littleh will be automatically redirected to Teas N Trees.'}
+                                    ? 'Cream N Crust is visible to customers on the customer app and accepting orders.'
+                                    : 'Cream N Crust is turned OFF and hidden from the customer app. Any customer visiting /littleh will be automatically redirected to Teas N Trees.'}
                             </p>
                         </div>
                     </div>
@@ -181,7 +181,7 @@ const GeneralSettings = () => {
                                 : 'bg-gray-300 focus:ring-gray-400'
                         } ${togglingStatus ? 'opacity-60 cursor-not-allowed' : ''}`}
                     >
-                        <span className="sr-only">Toggle Little H Storefront</span>
+                        <span className="sr-only">Toggle Cream N Crust storefront</span>
                         <span
                             aria-hidden="true"
                             className={`pointer-events-none inline-block h-10 w-10 transform rounded-full bg-white shadow-md ring-0 transition duration-300 ease-in-out ${

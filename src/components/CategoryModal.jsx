@@ -158,7 +158,7 @@ export default function CategoryModal({ isOpen, onClose, category, onSuccess }) 
                                 required
                             >
                                 <option value="teasntrees">Teas N Trees</option>
-                                <option value="littleh">LittleH Bakery</option>
+                                <option value="littleh">Cream N Crust</option>
                             </select>
                         </div>
                     </div>
